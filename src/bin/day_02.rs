@@ -1,6 +1,6 @@
 /*
  *  Author: Samuel Remedios
- *  Advent of Code 2017 Day 01
+ *  Advent of Code 2017 Day 02
  **/
 
 use std::io;
@@ -29,7 +29,6 @@ fn get_line_difference(data: Vec<u32>) -> u32 {
 }
 
 fn get_even_diff(data: Vec<u32>) -> u32 {
-    // for each value, compare against all others if less than
     for i in 0..data.len() {
         for j in 0..data.len() {
             let a = data[i as usize];

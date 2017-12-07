@@ -44,6 +44,7 @@ fn distance_to_center(input: f64, (lower, upper): (f64, f64), area: f64) -> f64 
     (input - mid).abs() + dist_to_mid
 }
 
+
 #[test]
 fn test_distance_to_center() {
     assert_eq!(distance_to_center(23., (21., 25.), 25.), 2.);
@@ -79,5 +80,7 @@ fn main() {
     let interval = get_interval(input);
 
     println!("Part 1 {}", distance_to_center(input, interval, area));
+
+    let mut matrix: [[u32; max_size]; max_size] = [[0; max_size]; max_size];
 
 }

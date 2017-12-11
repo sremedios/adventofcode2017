@@ -18,39 +18,25 @@ fn main() {
     while let Some(b) = iter.next() {
         let c = b.unwrap() as char;
 
+        if c != '!' && c != '>' && garbage {
+            garbage_count += 1;
+            continue;
+        }
+
         match c {
             '!' => {
                 iter.next();
                 continue;
             }
             '{' => {
-                if !garbage {
-                    depth += 1;
-                    count += depth;
-                } else {
-                    garbage_count += 1;
-                }
+                depth += 1;
+                count += depth;
             }
-            '}' => {
-                if !garbage {
-                    depth -= 1;
-                } else {
-                    garbage_count += 1;
-                }
-            }
-            '<' => {
-                if !garbage {
-                    garbage = true;
-                } else {
-                    garbage_count += 1;
-                }
-            }
+            '}' => depth -= 1,
+            '<' => garbage = true,
             '>' => garbage = false,
-            _ => {
-                if garbage {
-                    garbage_count += 1;
-                }
-            }
+            _ => (),
+
         }
     }
 
